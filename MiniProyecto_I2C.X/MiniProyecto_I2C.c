@@ -63,7 +63,7 @@ void main() {
 //        Gy = MPU6050_get_Gy(); // Giroscopio eje y
 //        Gz = MPU6050_get_Gz(); // Giroscopio eje z
 
-    }
+    } 
 }
 
 void setup(void) {

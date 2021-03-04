@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\pc\AppData\Local\Temp\schk.o
+$C:\Users\pc\AppData\Local\Temp\sea0.o
 end_init CODE 0 0 0 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\MiniProyecto_I2C.X.production.o
@@ -82,22 +82,22 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\MiniProyecto_I2C.X.production.o
-7F1 cinit CODE >976:C:\Users\pc\AppData\Local\Temp\schk.s
-7F1 cinit CODE >979:C:\Users\pc\AppData\Local\Temp\schk.s
-7F1 cinit CODE >996:C:\Users\pc\AppData\Local\Temp\schk.s
-7F2 cinit CODE >997:C:\Users\pc\AppData\Local\Temp\schk.s
-7F3 cinit CODE >998:C:\Users\pc\AppData\Local\Temp\schk.s
-7F4 cinit CODE >999:C:\Users\pc\AppData\Local\Temp\schk.s
-7F5 cinit CODE >1000:C:\Users\pc\AppData\Local\Temp\schk.s
-7F6 cinit CODE >1001:C:\Users\pc\AppData\Local\Temp\schk.s
-7F7 cinit CODE >1002:C:\Users\pc\AppData\Local\Temp\schk.s
-7F8 cinit CODE >1003:C:\Users\pc\AppData\Local\Temp\schk.s
-7F9 cinit CODE >1004:C:\Users\pc\AppData\Local\Temp\schk.s
-7FA cinit CODE >1005:C:\Users\pc\AppData\Local\Temp\schk.s
-7FB cinit CODE >1006:C:\Users\pc\AppData\Local\Temp\schk.s
-7FC cinit CODE >1012:C:\Users\pc\AppData\Local\Temp\schk.s
-7FC cinit CODE >1014:C:\Users\pc\AppData\Local\Temp\schk.s
-7FD cinit CODE >1015:C:\Users\pc\AppData\Local\Temp\schk.s
+7F1 cinit CODE >976:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F1 cinit CODE >979:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F1 cinit CODE >996:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F2 cinit CODE >997:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F3 cinit CODE >998:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F4 cinit CODE >999:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F5 cinit CODE >1000:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F6 cinit CODE >1001:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F7 cinit CODE >1002:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F8 cinit CODE >1003:C:\Users\pc\AppData\Local\Temp\sea0.s
+7F9 cinit CODE >1004:C:\Users\pc\AppData\Local\Temp\sea0.s
+7FA cinit CODE >1005:C:\Users\pc\AppData\Local\Temp\sea0.s
+7FB cinit CODE >1006:C:\Users\pc\AppData\Local\Temp\sea0.s
+7FC cinit CODE >1012:C:\Users\pc\AppData\Local\Temp\sea0.s
+7FC cinit CODE >1014:C:\Users\pc\AppData\Local\Temp\sea0.s
+7FD cinit CODE >1015:C:\Users\pc\AppData\Local\Temp\sea0.s
 528 text16 CODE >36:C:\Users\pc\Desktop\UVG\7 semestre\Digital 2\MiniProyecto_I2C\MiniProyecto_I2C.X\I2C.c
 528 text16 CODE >37:C:\Users\pc\Desktop\UVG\7 semestre\Digital 2\MiniProyecto_I2C\MiniProyecto_I2C.X\I2C.c
 534 text16 CODE >38:C:\Users\pc\Desktop\UVG\7 semestre\Digital 2\MiniProyecto_I2C\MiniProyecto_I2C.X\I2C.c
@@ -282,11 +282,11 @@ __end_of_MPU6050_read D1A 0 CODE 0 text11 dist/default/production\MiniProyecto_I
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\pc\AppData\Local\Temp\schk.o
+___sp 0 0 STACK 2 stack C:\Users\pc\AppData\Local\Temp\sea0.o
 _main B26 0 CODE 0 maintext dist/default/production\MiniProyecto_I2C.X.production.o
 __size_of_UART_send_char 0 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
-start 0 0 CODE 0 init C:\Users\pc\AppData\Local\Temp\schk.o
+start 0 0 CODE 0 init C:\Users\pc\AppData\Local\Temp\sea0.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 __size_of___lldiv 0 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
@@ -294,12 +294,12 @@ __size_of___lldiv 0 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.product
 __Hpowerup 0 0 CODE 0 powerup -
 I2C_Master_Read@a 70 0 COMMON 1 cstackCOMMON dist/default/production\MiniProyecto_I2C.X.production.o
 MPU6050_read@add 76 0 COMMON 1 cstackCOMMON dist/default/production\MiniProyecto_I2C.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\schk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\schk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\schk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\schk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\schk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\schk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\sea0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\sea0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\sea0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\sea0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\sea0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\pc\AppData\Local\Temp\sea0.o
 wtemp0 7E 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 _UART_send_string AA0 0 CODE 0 text4 dist/default/production\MiniProyecto_I2C.X.production.o
 _UART_config A6A 0 CODE 0 text6 dist/default/production\MiniProyecto_I2C.X.production.o
@@ -313,8 +313,8 @@ __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 7A 0 COMMON 1 cstackCOMMON dist/default/production\MiniProyecto_I2C.X.production.o
 __end_of___awdiv FE2 0 CODE 0 text10 dist/default/production\MiniProyecto_I2C.X.production.o
 __end_of___lldiv F10 0 CODE 0 text3 dist/default/production\MiniProyecto_I2C.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\pc\AppData\Local\Temp\schk.o
-___stacklo 0 0 ABS 0 - C:\Users\pc\AppData\Local\Temp\schk.o
+___stackhi 0 0 ABS 0 - C:\Users\pc\AppData\Local\Temp\sea0.o
+___stacklo 0 0 ABS 0 - C:\Users\pc\AppData\Local\Temp\sea0.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 ___lldiv@counter 7D 0 COMMON 1 cstackCOMMON dist/default/production\MiniProyecto_I2C.X.production.o
 start_initialization FE2 0 CODE 0 cinit dist/default/production\MiniProyecto_I2C.X.production.o
@@ -329,7 +329,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 UART_send_string@st_pt 71 0 COMMON 1 cstackCOMMON dist/default/production\MiniProyecto_I2C.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\pc\AppData\Local\Temp\schk.o
+___int_sp 0 0 STACK 2 stack C:\Users\pc\AppData\Local\Temp\sea0.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -378,7 +378,7 @@ _I2C_Master_Write A28 0 CODE 0 text12 dist/default/production\MiniProyecto_I2C.X
 __end_of_UART_config AA0 0 CODE 0 text6 dist/default/production\MiniProyecto_I2C.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 ___lldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\MiniProyecto_I2C.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\pc\AppData\Local\Temp\schk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\pc\AppData\Local\Temp\sea0.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _RCSTAbits 18 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\MiniProyecto_I2C.X.production.o
