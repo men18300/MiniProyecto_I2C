@@ -16,7 +16,7 @@
 #define BUTTON1   35
 #define BUTTON2   0
 #define LED_GREEN 19
-#define LED_RED   17
+#define LED_RED   21  
 
 #define FF17 &FreeSans9pt7b
 #define FF21 &FreeSansBold9pt7b
@@ -64,6 +64,7 @@ void setup()
 
   
   mqtt.subscribe(&ledControl);
+  mqtt.subscribe(&ledVerde);
 }
 
 float ambientCelsius = 0.0;
@@ -82,12 +83,31 @@ void loop()
 
       if (!strcmp((char*) ledControl.lastread, "ON")) {
         digitalWrite(LED_GREEN, HIGH);
+        Serial.write(1);
 
       }
       else {
         digitalWrite(LED_GREEN, LOW);
+        Serial.write(2);
       }
     }
+    else if (subscription == &ledVerde) {
+      Serial.print(F("Got: "));
+      Serial.println((char *)ledVerde.lastread);
+
+      if (!strcmp((char*) ledVerde.lastread, "ON")) {
+        digitalWrite(LED_RED, HIGH);
+        Serial.write(3);
+
+      }
+      else {
+        digitalWrite(LED_RED, LOW);
+        Serial.write(4);
+      }
+    }
+
+
+    
   }
 
           int conteo= Serial.read();

@@ -195,6 +195,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1fff"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/pc/Desktop/UVG/7 semestre/Digital 2/MiniProyecto_I2C/MiniProyecto_I2C.X/debug/default/MiniProyecto_I2C_ptg"/>
         <property key="programmerToGoImageName" value="MiniProyecto_I2C_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

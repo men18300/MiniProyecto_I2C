@@ -1,6 +1,25 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T2 __interrupt ]
+"543 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 543:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 542: typedef union {
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"14 ./USART.h
+[; ;./USART.h: 14: char UART_get_char();
+[v _UART_get_char `(uc ~T0 @X0 0 e? ]
+"352 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 [p mainexit ]
-"39 MiniProyecto_I2C.c
+"41 MiniProyecto_I2C.c
 [v _setup `(v ~T0 @X0 0 ef ]
 "17 ./MPU6050.h
 [; ;./MPU6050.h: 17: void MPU6050_init();
@@ -8,13 +27,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./USART.h
 [; ;./USART.h: 11: void UART_config();
 [v _UART_config `(v ~T0 @X0 0 e? ]
-"352 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"22 ./MPU6050.h
-[; ;./MPU6050.h: 22: int8_t MPU6050_get_Gx();
-[v _MPU6050_get_Gx `(c ~T0 @X0 0 e? ]
-"13 ./USART.h
+"13
 [; ;./USART.h: 13: void UART_send_string(char* st_pt);
 [v _UART_send_string `(v ~T0 @X0 0 ef1`*uc ]
 "3387 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
@@ -53,6 +66,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ./I2C.h
 [; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
 [v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
+"465 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -287,112 +315,145 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"18 MiniProyecto_I2C.c
-[; ;MiniProyecto_I2C.c: 18: float Ax,Gx ;
+"21 MiniProyecto_I2C.c
+[; ;MiniProyecto_I2C.c: 21: float Ax, Gx;
+[; ;MiniProyecto_I2C.c: 21: void main() {
 [v _Ax `f ~T0 @X0 1 e ]
 [v _Gx `f ~T0 @X0 1 e ]
-"21
-[; ;MiniProyecto_I2C.c: 21: uint8_t contador;
+"22
+[; ;MiniProyecto_I2C.c: 22: uint8_t contador;
+[; ;MiniProyecto_I2C.c: 22:     setup();
 [v _contador `uc ~T0 @X0 1 e ]
-"25
-[p x FOSC  =  INTRC_NOCLKOUT   ]
-"26
-[p x WDTE  =  OFF  ]
+"23
+[; ;MiniProyecto_I2C.c: 23: uint8_t valorRX;
+[; ;MiniProyecto_I2C.c: 23:     MPU6050_init();
+[v _valorRX `uc ~T0 @X0 1 e ]
 "27
-[p x PWRTE  =  OFF  ]
+[p x FOSC  =  INTRC_NOCLKOUT   ]
 "28
-[p x BOREN  =  ON  ]
+[p x WDTE  =  OFF  ]
 "29
-[p x LVP  =  OFF  ]
+[p x PWRTE  =  OFF  ]
 "30
-[p x CPD  =  OFF  ]
+[p x BOREN  =  ON  ]
 "31
-[p x WRT  =  OFF  ]
+[p x LVP  =  OFF  ]
 "32
+[p x CPD  =  OFF  ]
+"33
+[p x WRT  =  OFF  ]
+"34
 [p x CP  =  OFF  ]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"49
+[v _isr `(v ~T2 @X0 1 ef ]
+{
+[e :U _isr ]
+[f ]
+"50
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 144  ]
+{
+"51
+[e = _valorRX -> ( _UART_get_char ..  `uc ]
+"52
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"53
+[e = _PORTD _valorRX ]
+"54
+}
+[e :U 144 ]
+"55
+[e :UE 143 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"45
+"57
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"46
+"58
 [e ( _setup ..  ]
-"47
+"59
 [e ( _MPU6050_init ..  ]
-"48
-[e ( _UART_config ..  ]
-"49
-[e :U 145 ]
-{
 "60
-[; ;MiniProyecto_I2C.c: 60:         PORTD = MPU6050_get_Gx();
-[e = _PORTD -> ( _MPU6050_get_Gx ..  `uc ]
+[e ( _UART_config ..  ]
 "61
-[; ;MiniProyecto_I2C.c: 61:         UART_send_string(PORTD);
+[e :U 147 ]
+{
+"89
+[; ;MiniProyecto_I2C.c: 89:         UART_send_string(PORTD);
 [e ( _UART_send_string (1 -> _PORTD `*uc ]
-"66
-[; ;MiniProyecto_I2C.c: 66:     }
+"101
+[; ;MiniProyecto_I2C.c: 101:     }
 }
-[e :U 144 ]
-[e $U 145  ]
 [e :U 146 ]
-"67
-[; ;MiniProyecto_I2C.c: 67: }
-[e :UE 143 ]
+[e $U 147  ]
+[e :U 148 ]
+"102
+[; ;MiniProyecto_I2C.c: 102: }
+[e :UE 145 ]
 }
-"69
-[; ;MiniProyecto_I2C.c: 69: void setup(void) {
+"104
+[; ;MiniProyecto_I2C.c: 104: void setup(void) {
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"70
-[; ;MiniProyecto_I2C.c: 70:     ANSEL = 0;
+"105
+[; ;MiniProyecto_I2C.c: 105:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"71
-[; ;MiniProyecto_I2C.c: 71:     ANSELH = 0;
+"106
+[; ;MiniProyecto_I2C.c: 106:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"72
-[; ;MiniProyecto_I2C.c: 72:     TRISA = 0;
+"107
+[; ;MiniProyecto_I2C.c: 107:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"73
-[; ;MiniProyecto_I2C.c: 73:     TRISA = 0;
+"108
+[; ;MiniProyecto_I2C.c: 108:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"74
-[; ;MiniProyecto_I2C.c: 74:     PORTA = 0;
+"109
+[; ;MiniProyecto_I2C.c: 109:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"75
-[; ;MiniProyecto_I2C.c: 75:     TRISB = 0;
+"110
+[; ;MiniProyecto_I2C.c: 110:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"76
-[; ;MiniProyecto_I2C.c: 76:     PORTB = 0;
+"111
+[; ;MiniProyecto_I2C.c: 111:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"77
-[; ;MiniProyecto_I2C.c: 77:     TRISC = 0;
+"112
+[; ;MiniProyecto_I2C.c: 112:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"78
-[; ;MiniProyecto_I2C.c: 78:     PORTC = 0;
+"113
+[; ;MiniProyecto_I2C.c: 113:     PORTC = 0;
 [e = _PORTC -> -> 0 `i `uc ]
-"79
-[; ;MiniProyecto_I2C.c: 79:     TRISD = 0;
+"114
+[; ;MiniProyecto_I2C.c: 114:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"80
-[; ;MiniProyecto_I2C.c: 80:     PORTD = 0;
+"115
+[; ;MiniProyecto_I2C.c: 115:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"81
-[; ;MiniProyecto_I2C.c: 81:     TRISE = 0;
+"116
+[; ;MiniProyecto_I2C.c: 116:     TRISE = 0;
 [e = _TRISE -> -> 0 `i `uc ]
-"82
-[; ;MiniProyecto_I2C.c: 82:     PORTE = 0;
+"117
+[; ;MiniProyecto_I2C.c: 117:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"83
-[; ;MiniProyecto_I2C.c: 83:     contador = 0;
+"118
+[; ;MiniProyecto_I2C.c: 118:     contador = 0;
 [e = _contador -> -> 0 `i `uc ]
-"84
-[; ;MiniProyecto_I2C.c: 84:     I2C_Master_Init(100000);
+"119
+[; ;MiniProyecto_I2C.c: 119:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"86
-[; ;MiniProyecto_I2C.c: 86: }
-[e :UE 147 ]
+"120
+[; ;MiniProyecto_I2C.c: 120:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"121
+[; ;MiniProyecto_I2C.c: 121:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"122
+[; ;MiniProyecto_I2C.c: 122:     PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"123
+[; ;MiniProyecto_I2C.c: 123: }
+[e :UE 149 ]
 }

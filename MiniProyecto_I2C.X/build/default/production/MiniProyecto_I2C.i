@@ -2902,10 +2902,12 @@ char UART_get_char();
 # 16 "MiniProyecto_I2C.c" 2
 
 
-float Ax,Gx ;
 
 
+
+float Ax, Gx;
 uint8_t contador;
+uint8_t valorRX;
 
 
 
@@ -2924,23 +2926,29 @@ uint8_t contador;
 
 
 void setup(void);
+void __attribute__((picinterrupt(("")))) isr(void);
 
 
 
 
+
+
+void __attribute__((picinterrupt(("")))) isr(void) {
+    if (PIR1bits.RCIF == 1) {
+        valorRX = UART_get_char();
+        PIR1bits.RCIF = 0;
+        PORTD = valorRX;
+    }
+}
 
 void main() {
     setup();
     MPU6050_init();
-    UART_config() ;
+    UART_config();
     while (1) {
-# 60 "MiniProyecto_I2C.c"
-        PORTD = MPU6050_get_Gx();
+# 89 "MiniProyecto_I2C.c"
         UART_send_string(PORTD);
-
-
-
-
+# 101 "MiniProyecto_I2C.c"
     }
 }
 
@@ -2960,5 +2968,7 @@ void setup(void) {
     PORTE = 0;
     contador = 0;
     I2C_Master_Init(100000);
-
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIR1bits.RCIF = 0;
 }

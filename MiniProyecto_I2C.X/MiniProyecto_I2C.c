@@ -15,10 +15,12 @@
 #include "I2C.h"
 #include "USART.h"
 
-float Ax,Gx ;
+
 
 //Definimos variables
+float Ax, Gx;
 uint8_t contador;
+uint8_t valorRX;
 
 
 // BEGIN CONFIG
@@ -37,33 +39,66 @@ uint8_t contador;
 
 //Prototipos de funciones
 void setup(void);
+void __interrupt() isr(void);
 
 
 
 //Configuramos interrupciones
+//Interrupciones
+
+void __interrupt() isr(void) {
+    if (PIR1bits.RCIF == 1) {
+        valorRX = UART_get_char(); //Aqui recibimos el dato de la recepcion
+        PIR1bits.RCIF = 0;
+        PORTD = valorRX;
+    }
+}
 
 void main() {
     setup();
     MPU6050_init();
-    UART_config() ;
+    UART_config();
     while (1) {
-//        PORTDbits.RD2 = 1;
-//        __delay_ms(20);
-//        PORTDbits.RD2 = 0;
-//        __delay_ms(20);
 
 
-     //  PORTD = MPU6050_get_Ax(); // Acelerometro eje x
-//        Ay = MPU6050_get_Ay(); // Acelerometro eje y
-//        Az = MPU6050_get_Az(); // Acelerometro eje z
-//
-        PORTD = MPU6050_get_Gx(); // Giroscopio eje x
+        //        if (valorRX == 20||4) {//LED ROJO
+        //            PORTDbits.RD0 = 0;
+        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+        //            valorRX = 0;
+        //        } else if (valorRX == 18||2) { //LED ROJO
+        //            PORTDbits.RD0 = 1;
+        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+        //            valorRX = 0;
+        //        } else if (valorRX == 4||20) {//LED VERDE
+        //            PORTDbits.RD1 = 0;
+        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+        //            valorRX = 0;
+        //        } else if (valorRX == 252) { //LUZ VERDE
+        //                PORTDbits.RD1 = 1;
+        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+        //            valorRX = 0;
+        //        }
+
+
+
+        //  PORTD = MPU6050_get_Ax(); // Acelerometro eje x
+        //        Ay = MPU6050_get_Ay(); // Acelerometro eje y
+        //        Az = MPU6050_get_Az(); // Acelerometro eje z
+        //
+        //  PORTD = MPU6050_get_Gx(); // Giroscopio eje x
         UART_send_string(PORTD);
-     //   PORTD=;
-//        Gy = MPU6050_get_Gy(); // Giroscopio eje y
-//        Gz = MPU6050_get_Gz(); // Giroscopio eje z
+        //   PORTD=;
+        //        Gy = MPU6050_get_Gy(); // Giroscopio eje y
+        //        Gz = MPU6050_get_Gz(); // Giroscopio eje z
+        //     PORTDbits.RD2 = 1;
 
-    } 
+        //    PORTDbits.RD2 = 0;
+
+        //
+
+
+
+    }
 }
 
 void setup(void) {
@@ -82,5 +117,7 @@ void setup(void) {
     PORTE = 0;
     contador = 0;
     I2C_Master_Init(100000);
-
+    INTCONbits.GIE = 1; //Habilitamos las interrupciones
+    INTCONbits.PEIE = 1; //Habilitamos las interrupciones perifericas
+    PIR1bits.RCIF = 0; //Apagamos la bandera del RX
 }
