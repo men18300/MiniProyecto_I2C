@@ -2748,17 +2748,26 @@ void UART_config() {
     RCSTAbits.SPEN = 1;
     TRISCbits.TRISC6 = 0;
     TXSTAbits.TX9 = 0;
+    PIE1bits.TXIE = 0;
+
 
 
 
     RCSTAbits.CREN = 1;
-    PIE1bits.RCIE=1;
+    PIE1bits.RCIE = 1;
     RCSTAbits.RX9 = 0;
     TRISCbits.TRISC7 = 1;
 
 
-    SPBRG = ((8000000 / 16) / 115200) - 1;
+
+
+    SPBRG = 51;
+    SPBRGH = 0;
+
+
+
     TXSTAbits.BRGH = 1;
+    BAUDCTLbits.BRG16 = 0;
 
 
 }
@@ -2774,7 +2783,7 @@ void UART_send_string(char* st_pt) {
 }
 
 char UART_get_char() {
-    if (RCSTAbits.OERR==1)
+    if (RCSTAbits.OERR == 1)
     {
         RCSTAbits.CREN = 0;
         RCSTAbits.CREN = 1;

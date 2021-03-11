@@ -249,156 +249,178 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"34 MPU6050.c
-[; ;MPU6050.c: 34: void MPU6050_write(int add, int data) {
+"39 MPU6050.c
+[; ;MPU6050.c: 39: void MPU6050_write(int add, int data) {
 [v _MPU6050_write `(v ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _MPU6050_write ]
 [v _add `i ~T0 @X0 1 r1 ]
 [v _data `i ~T0 @X0 1 r2 ]
 [f ]
-"41
-[; ;MPU6050.c: 41:     I2C_Master_Start();
+"46
+[; ;MPU6050.c: 46:     I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"42
-[; ;MPU6050.c: 42:     I2C_Master_Write(0xD0);
-[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
-"43
-[; ;MPU6050.c: 43:     I2C_Master_Write(add);
-[e ( _I2C_Master_Write (1 -> _add `ui ]
-"44
-[; ;MPU6050.c: 44:     I2C_Master_Write(data);
-[e ( _I2C_Master_Write (1 -> _data `ui ]
-"45
-[; ;MPU6050.c: 45:     I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
 "47
-[; ;MPU6050.c: 47: }
+[; ;MPU6050.c: 47:     I2C_Master_Write(0xD0);
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"48
+[; ;MPU6050.c: 48:     I2C_Master_Write(add);
+[e ( _I2C_Master_Write (1 -> _add `ui ]
+"49
+[; ;MPU6050.c: 49:     I2C_Master_Write(data);
+[e ( _I2C_Master_Write (1 -> _data `ui ]
+"50
+[; ;MPU6050.c: 50:     I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"52
+[; ;MPU6050.c: 52: }
 [e :UE 139 ]
 }
-"49
-[; ;MPU6050.c: 49: int16_t MPU6050_read(int add) {
+"54
+[; ;MPU6050.c: 54: int16_t MPU6050_read(int add) {
 [v _MPU6050_read `(i ~T0 @X0 1 ef1`i ]
 {
 [e :U _MPU6050_read ]
 [v _add `i ~T0 @X0 1 r1 ]
 [f ]
-"61
-[; ;MPU6050.c: 61:     int retval;
-[v _retval `i ~T0 @X0 1 a ]
-"62
-[; ;MPU6050.c: 62:     I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"63
-[; ;MPU6050.c: 63:     I2C_Master_Write(0xD0);
-[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
-"64
-[; ;MPU6050.c: 64:     I2C_Master_Write(add);
-[e ( _I2C_Master_Write (1 -> _add `ui ]
-"65
-[; ;MPU6050.c: 65:     I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
 "66
-[; ;MPU6050.c: 66:     I2C_Master_Write(0xD1);
-[e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
+[; ;MPU6050.c: 66:     int retval;
+[v _retval `i ~T0 @X0 1 a ]
 "67
-[; ;MPU6050.c: 67:     retval = I2C_Master_Read(0);
-[e = _retval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
+[; ;MPU6050.c: 67:     I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
 "68
-[; ;MPU6050.c: 68:     I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
+[; ;MPU6050.c: 68:     I2C_Master_Write(0xD0);
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
 "69
-[; ;MPU6050.c: 69:     return retval;
+[; ;MPU6050.c: 69:     I2C_Master_Write(add);
+[e ( _I2C_Master_Write (1 -> _add `ui ]
+"70
+[; ;MPU6050.c: 70:     I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"71
+[; ;MPU6050.c: 71:     I2C_Master_Write(0xD1);
+[e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
+"72
+[; ;MPU6050.c: 72:     retval = I2C_Master_Read(0);
+[e = _retval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
+"73
+[; ;MPU6050.c: 73:     I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"74
+[; ;MPU6050.c: 74:     return retval;
 [e ) _retval ]
 [e $UE 140  ]
-"71
-[; ;MPU6050.c: 71: }
+"76
+[; ;MPU6050.c: 76: }
 [e :UE 140 ]
 }
-"73
-[; ;MPU6050.c: 73: void MPU6050_init() {
+"78
+[; ;MPU6050.c: 78: void MPU6050_init() {
 [v _MPU6050_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _MPU6050_init ]
 [f ]
-"74
-[; ;MPU6050.c: 74:     MPU6050_write(0x6B, 0x80);
-[e ( _MPU6050_write (2 , -> 107 `i -> 128 `i ]
-"75
-[; ;MPU6050.c: 75:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"76
-[; ;MPU6050.c: 76:     MPU6050_write(0x6B, 0x00);
-[e ( _MPU6050_write (2 , -> 107 `i -> 0 `i ]
-"77
-[; ;MPU6050.c: 77:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"78
-[; ;MPU6050.c: 78:     MPU6050_write(0x1A, 0x01);
-[e ( _MPU6050_write (2 , -> 26 `i -> 1 `i ]
 "79
-[; ;MPU6050.c: 79:     _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;MPU6050.c: 79:     MPU6050_write(0x6B, 0x80);
+[e ( _MPU6050_write (2 , -> 107 `i -> 128 `i ]
 "80
-[; ;MPU6050.c: 80:     MPU6050_write(0x1B, 0x00);
-[e ( _MPU6050_write (2 , -> 27 `i -> 0 `i ]
+[; ;MPU6050.c: 80:     _delay((unsigned long)((100)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "81
-[; ;MPU6050.c: 81: }
+[; ;MPU6050.c: 81:     MPU6050_write(0x6B, 0x00);
+[e ( _MPU6050_write (2 , -> 107 `i -> 0 `i ]
+"82
+[; ;MPU6050.c: 82:     _delay((unsigned long)((100)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"83
+[; ;MPU6050.c: 83:     MPU6050_write(0x1A, 0x01);
+[e ( _MPU6050_write (2 , -> 26 `i -> 1 `i ]
+"84
+[; ;MPU6050.c: 84:     _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"85
+[; ;MPU6050.c: 85:     MPU6050_write(0x1B, 0x00);
+[e ( _MPU6050_write (2 , -> 27 `i -> 0 `i ]
+"86
+[; ;MPU6050.c: 86: }
 [e :UE 141 ]
 }
-"83
-[; ;MPU6050.c: 83: float MPU6050_get_Ax() {
-[v _MPU6050_get_Ax `(f ~T0 @X0 1 ef ]
+"88
+[; ;MPU6050.c: 88: char MPU6050_get_Ax() {
+[v _MPU6050_get_Ax `(uc ~T0 @X0 1 ef ]
 {
 [e :U _MPU6050_get_Ax ]
 [f ]
-"84
-[; ;MPU6050.c: 84:     int8_t A_data_x[2];
-[v _A_data_x `c ~T0 @X0 -> 2 `i a ]
-"85
-[; ;MPU6050.c: 85:     int16_t accel_value_x;
+"89
+[; ;MPU6050.c: 89:     uint8_t A_data_x[2];
+[v _A_data_x `uc ~T0 @X0 -> 2 `i a ]
+"90
+[; ;MPU6050.c: 90:     int16_t accel_value_x;
 [v _accel_value_x `i ~T0 @X0 1 a ]
-"86
-[; ;MPU6050.c: 86:     A_data_x[0] = MPU6050_read(0x3B);
-[e = *U + &U _A_data_x * -> -> -> 0 `i `ui `ux -> -> # *U &U _A_data_x `ui `ux -> ( _MPU6050_read (1 -> 59 `i `c ]
-"87
-[; ;MPU6050.c: 87:     A_data_x[1] = MPU6050_read(0x3C);
-[e = *U + &U _A_data_x * -> -> -> 1 `i `ui `ux -> -> # *U &U _A_data_x `ui `ux -> ( _MPU6050_read (1 -> 60 `i `c ]
 "91
-[; ;MPU6050.c: 91:     return A_data_x[1];
-[e ) -> *U + &U _A_data_x * -> -> -> 1 `i `ui `ux -> -> # *U &U _A_data_x `ui `ux `f ]
-[e $UE 142  ]
+[; ;MPU6050.c: 91:     A_data_x[0] = MPU6050_read(0x3B);
+[e = *U + &U _A_data_x * -> -> -> 0 `i `ui `ux -> -> # *U &U _A_data_x `ui `ux -> ( _MPU6050_read (1 -> 59 `i `uc ]
 "92
-[; ;MPU6050.c: 92: }
+[; ;MPU6050.c: 92:     A_data_x[1] = MPU6050_read(0x3C);
+[e = *U + &U _A_data_x * -> -> -> 1 `i `ui `ux -> -> # *U &U _A_data_x `ui `ux -> ( _MPU6050_read (1 -> 60 `i `uc ]
+"101
+[; ;MPU6050.c: 101:     return A_data_x[0];
+[e ) -> *U + &U _A_data_x * -> -> -> 0 `i `ui `ux -> -> # *U &U _A_data_x `ui `ux `uc ]
+[e $UE 142  ]
+"103
+[; ;MPU6050.c: 103: }
 [e :UE 142 ]
 }
-"114
-[; ;MPU6050.c: 114: int8_t MPU6050_get_Gx() {
-[v _MPU6050_get_Gx `(c ~T0 @X0 1 ef ]
+"105
+[; ;MPU6050.c: 105: float MPU6050_get_Ay() {
+[v _MPU6050_get_Ay `(f ~T0 @X0 1 ef ]
 {
-[e :U _MPU6050_get_Gx ]
+[e :U _MPU6050_get_Ay ]
 [f ]
-"115
-[; ;MPU6050.c: 115: int8_t G_data_x[2];
-[v _G_data_x `c ~T0 @X0 -> 2 `i a ]
-"116
-[; ;MPU6050.c: 116: int16_t gyro_value_x;
-[v _gyro_value_x `i ~T0 @X0 1 a ]
-"117
-[; ;MPU6050.c: 117: G_data_x[0] = MPU6050_read(0x43)/2;
-[e = *U + &U _G_data_x * -> -> -> 0 `i `ui `ux -> -> # *U &U _G_data_x `ui `ux -> / ( _MPU6050_read (1 -> 67 `i -> 2 `i `c ]
-"118
-[; ;MPU6050.c: 118: G_data_x[1] = MPU6050_read(0x44)/2;
-[e = *U + &U _G_data_x * -> -> -> 1 `i `ui `ux -> -> # *U &U _G_data_x `ui `ux -> / ( _MPU6050_read (1 -> 68 `i -> 2 `i `c ]
-"123
-[; ;MPU6050.c: 123: int8_t gcx = G_data_x[1]+G_data_x[0];
-[v _gcx `c ~T0 @X0 1 a ]
-[e = _gcx -> + -> *U + &U _G_data_x * -> -> -> 1 `i `ui `ux -> -> # *U &U _G_data_x `ui `ux `i -> *U + &U _G_data_x * -> -> -> 0 `i `ui `ux -> -> # *U &U _G_data_x `ui `ux `i `c ]
-"124
-[; ;MPU6050.c: 124: return gcx;
-[e ) _gcx ]
+"106
+[; ;MPU6050.c: 106: int8_t A_data_y[2];
+[v _A_data_y `c ~T0 @X0 -> 2 `i a ]
+"107
+[; ;MPU6050.c: 107: int16_t accel_value_y;
+[v _accel_value_y `i ~T0 @X0 1 a ]
+"108
+[; ;MPU6050.c: 108: A_data_y[0] = MPU6050_read(0x3D);
+[e = *U + &U _A_data_y * -> -> -> 0 `i `ui `ux -> -> # *U &U _A_data_y `ui `ux -> ( _MPU6050_read (1 -> 61 `i `c ]
+"109
+[; ;MPU6050.c: 109: A_data_y[1] = MPU6050_read(0x3E);
+[e = *U + &U _A_data_y * -> -> -> 1 `i `ui `ux -> -> # *U &U _A_data_y `ui `ux -> ( _MPU6050_read (1 -> 62 `i `c ]
+"112
+[; ;MPU6050.c: 112: return A_data_y[0];
+[e ) -> *U + &U _A_data_y * -> -> -> 0 `i `ui `ux -> -> # *U &U _A_data_y `ui `ux `f ]
 [e $UE 143  ]
+"113
+[; ;MPU6050.c: 113: }
+[e :UE 143 ]
+}
+"117
+[; ;MPU6050.c: 117: float MPU6050_get_Az() {
+[v _MPU6050_get_Az `(f ~T0 @X0 1 ef ]
+{
+[e :U _MPU6050_get_Az ]
+[f ]
+"118
+[; ;MPU6050.c: 118: int8_t A_data_z[2];
+[v _A_data_z `c ~T0 @X0 -> 2 `i a ]
+"119
+[; ;MPU6050.c: 119: int16_t accel_value_z;
+[v _accel_value_z `i ~T0 @X0 1 a ]
+"120
+[; ;MPU6050.c: 120: A_data_z[0] = MPU6050_read(0x3F);
+[e = *U + &U _A_data_z * -> -> -> 0 `i `ui `ux -> -> # *U &U _A_data_z `ui `ux -> ( _MPU6050_read (1 -> 63 `i `c ]
+"121
+[; ;MPU6050.c: 121: A_data_z[1] = MPU6050_read(0x40);
+[e = *U + &U _A_data_z * -> -> -> 1 `i `ui `ux -> -> # *U &U _A_data_z `ui `ux -> ( _MPU6050_read (1 -> 64 `i `c ]
+"124
+[; ;MPU6050.c: 124: return A_data_z[0];
+[e ) -> *U + &U _A_data_z * -> -> -> 0 `i `ui `ux -> -> # *U &U _A_data_z `ui `ux `f ]
+[e $UE 144  ]
 "125
 [; ;MPU6050.c: 125: }
-[e :UE 143 ]
+[e :UE 144 ]
 }

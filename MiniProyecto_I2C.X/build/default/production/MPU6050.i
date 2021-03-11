@@ -2789,7 +2789,7 @@ int16_t MPU6050_read(int add);
 
 void MPU6050_init();
 
-float MPU6050_get_Ax();
+char MPU6050_get_Ax();
 float MPU6050_get_Ay();
 float MPU6050_get_Az();
 int8_t MPU6050_get_Gx();
@@ -2797,7 +2797,7 @@ float MPU6050_get_Gy();
 float MPU6050_get_Gz();
 float MPU6050_get_Temp();
 # 9 "MPU6050.c" 2
-# 34 "MPU6050.c"
+# 39 "MPU6050.c"
 void MPU6050_write(int add, int data) {
 
 
@@ -2814,7 +2814,7 @@ void MPU6050_write(int add, int data) {
 }
 
 int16_t MPU6050_read(int add) {
-# 61 "MPU6050.c"
+# 66 "MPU6050.c"
     int retval;
     I2C_Master_Start();
     I2C_Master_Write(0xD0);
@@ -2829,34 +2829,42 @@ int16_t MPU6050_read(int add) {
 
 void MPU6050_init() {
     MPU6050_write(0x6B, 0x80);
-    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(4000000/4000.0)));
     MPU6050_write(0x6B, 0x00);
-    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(4000000/4000.0)));
     MPU6050_write(0x1A, 0x01);
-    _delay((unsigned long)((10)*(8000000/4000.0)));
+    _delay((unsigned long)((10)*(4000000/4000.0)));
     MPU6050_write(0x1B, 0x00);
 }
 
-float MPU6050_get_Ax() {
-    int8_t A_data_x[2];
+char MPU6050_get_Ax() {
+    uint8_t A_data_x[2];
     int16_t accel_value_x;
     A_data_x[0] = MPU6050_read(0x3B);
     A_data_x[1] = MPU6050_read(0x3C);
+# 101 "MPU6050.c"
+    return A_data_x[0];
 
-
-
-    return A_data_x[1];
 }
-# 114 "MPU6050.c"
-int8_t MPU6050_get_Gx() {
-int8_t G_data_x[2];
-int16_t gyro_value_x;
-G_data_x[0] = MPU6050_read(0x43)/2;
-G_data_x[1] = MPU6050_read(0x44)/2;
+
+float MPU6050_get_Ay() {
+int8_t A_data_y[2];
+int16_t accel_value_y;
+A_data_y[0] = MPU6050_read(0x3D);
+A_data_y[1] = MPU6050_read(0x3E);
+
+
+return A_data_y[0];
+}
 
 
 
+float MPU6050_get_Az() {
+int8_t A_data_z[2];
+int16_t accel_value_z;
+A_data_z[0] = MPU6050_read(0x3F);
+A_data_z[1] = MPU6050_read(0x40);
 
-int8_t gcx = G_data_x[1]+G_data_x[0];
-return gcx;
+
+return A_data_z[0];
 }

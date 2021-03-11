@@ -31,6 +31,11 @@
 #define GYRO_ZOUT_H    0x47
 #define GYRO_ZOUT_L    0x48
 
+//Primero tenemos que saber los rangos con los que está configurado nuestro MPU6050,
+//dichos rangos pueden ser 2g/4g/8g/16g para el acelerómetro y 250/500/1000/2000(°/s) para el giroscopio.
+
+//Para este ejemplo trabajaremos con los rangos por defecto (2g y 250°/s)
+
 void MPU6050_write(int add, int data) {
     // i2c_start();
     // i2c_write(W_DATA);
@@ -80,50 +85,60 @@ void MPU6050_init() {
     MPU6050_write(GYRO_CONFIG, 0x00);
 }
 
-float MPU6050_get_Ax() {
-    int8_t A_data_x[2];
+char  MPU6050_get_Ax() {
+    uint8_t A_data_x[2];
     int16_t accel_value_x;
     A_data_x[0] = MPU6050_read(ACCEL_XOUT_H);
     A_data_x[1] = MPU6050_read(ACCEL_XOUT_L);
+ //   accel_value_x=A_data_x[0]<<8;
+  //  accel_value_x= (accel_value_x|A_data_x[1]);
    // accel_value_x = make16(A_data_x[0], A_data_x[1]);
    // float acx = (float) accel_value_x / (float) 16384;
   //  return acx;
-    return  A_data_x[1];
+   // accel_value_x=(A_data_x[0]+A_data_x[1])/16384.0 ;
+    
+    
+    return A_data_x[0];
+    // return accel_value_x;
 }
 //
-//float MPU6050_get_Ay() {
-//int8_t A_data_y[2];
-//int16_t accel_value_y;
-//A_data_y[0] = MPU6050_read(ACCEL_YOUT_H);
-//A_data_y[1] = MPU6050_read(ACCEL_YOUT_L);
+float MPU6050_get_Ay() {
+int8_t A_data_y[2];
+int16_t accel_value_y;
+A_data_y[0] = MPU6050_read(ACCEL_YOUT_H);
+A_data_y[1] = MPU6050_read(ACCEL_YOUT_L);
 //accel_value_y = make16(A_data_y[0], A_data_y[1]);
 //float acy = (float) accel_value_y / (float) 16384;
-//return acy;
-//}
+return A_data_y[0];
+}
+
+
 //
-//float MPU6050_get_Az() {
-//int8_t A_data_z[2];
-//int16_t accel_value_z;
-//A_data_z[0] = MPU6050_read(ACCEL_ZOUT_H);
-//A_data_z[1] = MPU6050_read(ACCEL_ZOUT_L);
+float MPU6050_get_Az() {
+int8_t A_data_z[2];
+int16_t accel_value_z;
+A_data_z[0] = MPU6050_read(ACCEL_ZOUT_H);
+A_data_z[1] = MPU6050_read(ACCEL_ZOUT_L);
 //accel_value_z = make16(A_data_z[0], A_data_z[1]);
 //float acz = (float) accel_value_z / (float) 16384;
-//return acz;
-//}
+return A_data_z[0];
+}
+
 //
-int8_t MPU6050_get_Gx() {
-int8_t G_data_x[2];
-int16_t gyro_value_x;
-G_data_x[0] = MPU6050_read(GYRO_XOUT_H)/2;
-G_data_x[1] = MPU6050_read(GYRO_XOUT_L)/2;
+//int8_t MPU6050_get_Gx() {
+//int8_t G_data_x[2];
+//int16_t gyro_value_x;
+//G_data_x[0] = MPU6050_read(GYRO_XOUT_H)/2;
+//G_data_x[1] = MPU6050_read(GYRO_XOUT_L)/2;
 //gyro_value_x = make16(G_data_x[0], G_data_x[1]);
 //float gcx = (float) gyro_value_x / (float) 1031;
 //return gcx;
-
-int8_t gcx = G_data_x[1]+G_data_x[0];
-return gcx;
-}
 //
+//int8_t gcx = G_data_x[1]+G_data_x[0]/1031;
+//return gcx;
+//}
+//
+
 //float MPU6050_get_Gy() {
 //int8_t G_data_y[2];
 //int16_t gyro_value_y;
@@ -134,6 +149,7 @@ return gcx;
 //return gcy;
 //}
 //
+
 //float MPU6050_get_Gz() {
 //int8_t G_data_z[2];
 //int16_t gyro_value_z;
@@ -144,6 +160,7 @@ return gcx;
 //return gcz;
 //}
 //
+
 //float MPU6050_get_Temp() {
 //int8_t temp_data[2];
 //int16_t temp;

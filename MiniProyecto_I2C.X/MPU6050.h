@@ -1,7 +1,7 @@
 
 #ifndef MPU6050
 #define	MPU6050
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 4000000
 
 
 #include <xc.h> // include processor files - each processor file is guarded.  
@@ -16,7 +16,7 @@ int16_t MPU6050_read(int add);
 
 void MPU6050_init();
 
-float MPU6050_get_Ax();
+char MPU6050_get_Ax();
 float MPU6050_get_Ay();
 float MPU6050_get_Az();
 int8_t MPU6050_get_Gx();

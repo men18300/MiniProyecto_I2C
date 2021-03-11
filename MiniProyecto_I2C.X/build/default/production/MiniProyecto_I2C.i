@@ -2872,7 +2872,7 @@ int16_t MPU6050_read(int add);
 
 void MPU6050_init();
 
-float MPU6050_get_Ax();
+char MPU6050_get_Ax();
 float MPU6050_get_Ay();
 float MPU6050_get_Az();
 int8_t MPU6050_get_Gx();
@@ -2905,7 +2905,8 @@ char UART_get_char();
 
 
 
-float Ax, Gx;
+char Ay, Az;
+char Ax;
 uint8_t contador;
 uint8_t valorRX;
 
@@ -2937,7 +2938,7 @@ void __attribute__((picinterrupt(("")))) isr(void) {
     if (PIR1bits.RCIF == 1) {
         valorRX = UART_get_char();
         PIR1bits.RCIF = 0;
-        PORTD = valorRX;
+
     }
 }
 
@@ -2945,10 +2946,49 @@ void main() {
     setup();
     MPU6050_init();
     UART_config();
+
     while (1) {
-# 89 "MiniProyecto_I2C.c"
-        UART_send_string(PORTD);
-# 101 "MiniProyecto_I2C.c"
+
+        if (valorRX == 0b11110010) {
+            PORTCbits.RC2 = 0;
+            RCREG = 0;
+            valorRX = 0;
+        } else if (valorRX == 0b11111110) {
+            PORTCbits.RC2 = 1;
+            RCREG = 0;
+            valorRX = 0;
+        } else if (valorRX == 0b11110111) {
+            PORTCbits.RC1 = 0;
+            RCREG = 0;
+            valorRX = 0;
+        } else if (valorRX == 0b11111011) {
+            PORTCbits.RC1 = 1;
+            RCREG = 0;
+            valorRX = 0;
+        }
+
+        UART_send_char(0);
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+
+        Ax = MPU6050_get_Ax();
+        PORTD=Ax;
+        UART_send_char('a');
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+        UART_send_char(Ax);
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+
+        Ay = MPU6050_get_Ay();
+        UART_send_char('b');
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+        UART_send_char(Ay);
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+
+        Az = MPU6050_get_Az();
+        UART_send_char('c');
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+        UART_send_char(Az);
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+# 113 "MiniProyecto_I2C.c"
     }
 }
 

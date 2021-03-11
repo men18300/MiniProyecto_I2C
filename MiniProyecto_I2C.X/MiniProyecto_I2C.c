@@ -5,7 +5,7 @@
 
 
 
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 4000000
 
 #include <xc.h>
 #include <stdint.h>
@@ -18,7 +18,8 @@
 
 
 //Definimos variables
-float Ax, Gx;
+char Ay, Az;
+char Ax;
 uint8_t contador;
 uint8_t valorRX;
 
@@ -28,7 +29,7 @@ uint8_t valorRX;
 #pragma config WDTE = OFF // Watchdog Timer Enable bit (WDT enabled)
 #pragma config PWRTE = OFF // Power-up Timer Enable bit (PWRT disabled)
 #pragma config BOREN = ON // Brown-out Reset Enable bit (BOR enabled)
-#pragma config LVP = OFF // Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit (RB3 is digital I/O, HV on MCLR must be used for programming)
+#pragma config LVP = OFF // Low-Voltage (Single-Supply) In-Circuit Serial Programming Enabl e bit (RB3 is digital I/O, HV on MCLR must be used for programming)
 #pragma config CPD = OFF // Data EEPROM Memory Code Protection bit (Data EEPROM code protection off)
 #pragma config WRT = OFF // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF // Flash Program Memory Code Protection bit (Code protection off)
@@ -50,7 +51,7 @@ void __interrupt() isr(void) {
     if (PIR1bits.RCIF == 1) {
         valorRX = UART_get_char(); //Aqui recibimos el dato de la recepcion
         PIR1bits.RCIF = 0;
-        PORTD = valorRX;
+        // PORTD = valorRX;
     }
 }
 
@@ -58,44 +59,55 @@ void main() {
     setup();
     MPU6050_init();
     UART_config();
+
     while (1) {
 
+        if (valorRX == 0b11110010) {//LED ROJO
+            PORTCbits.RC2 = 0;
+            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+            valorRX = 0;
+        } else if (valorRX == 0b11111110) { //LED ROJO
+            PORTCbits.RC2 = 1;
+            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+            valorRX = 0;
+        } else if (valorRX == 0b11110111) {//LED VERDE
+            PORTCbits.RC1 = 0;
+            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+            valorRX = 0;
+        } else if (valorRX == 0b11111011) { //LUZ VERDE
+            PORTCbits.RC1 = 1;
+            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
+            valorRX = 0;
+        }
 
-        //        if (valorRX == 20||4) {//LED ROJO
-        //            PORTDbits.RD0 = 0;
-        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
-        //            valorRX = 0;
-        //        } else if (valorRX == 18||2) { //LED ROJO
-        //            PORTDbits.RD0 = 1;
-        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
-        //            valorRX = 0;
-        //        } else if (valorRX == 4||20) {//LED VERDE
-        //            PORTDbits.RD1 = 0;
-        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
-        //            valorRX = 0;
-        //        } else if (valorRX == 252) { //LUZ VERDE
-        //                PORTDbits.RD1 = 1;
-        //            RCREG = 0; //Ponemos en 0 para que no vuelva a entrar al if
-        //            valorRX = 0;
-        //        }
+        UART_send_char(0);
+        __delay_ms(200);
+
+        Ax = MPU6050_get_Ax(); // Acelerometro eje x
+        PORTD=Ax;
+        UART_send_char('a');
+        __delay_ms(200);
+        UART_send_char(Ax);
+        __delay_ms(200);
+
+        Ay = MPU6050_get_Ay(); // Acelerometro eje y
+        UART_send_char('b');
+        __delay_ms(200);
+        UART_send_char(Ay);
+        __delay_ms(200);
+
+        Az = MPU6050_get_Az(); // Acelerometro eje z
+        UART_send_char('c');
+        __delay_ms(200);
+        UART_send_char(Az);
+        __delay_ms(200);
 
 
 
-        //  PORTD = MPU6050_get_Ax(); // Acelerometro eje x
-        //        Ay = MPU6050_get_Ay(); // Acelerometro eje y
-        //        Az = MPU6050_get_Az(); // Acelerometro eje z
-        //
-        //  PORTD = MPU6050_get_Gx(); // Giroscopio eje x
-        UART_send_string(PORTD);
-        //   PORTD=;
-        //        Gy = MPU6050_get_Gy(); // Giroscopio eje y
-        //        Gz = MPU6050_get_Gz(); // Giroscopio eje z
-        //     PORTDbits.RD2 = 1;
 
-        //    PORTDbits.RD2 = 0;
-
-        //
-
+        //  Gx = MPU6050_get_Gx(); // Giroscopio eje x
+        //  Gy = MPU6050_get_Gy(); // Giroscopio eje y
+        //  Gz = MPU6050_get_Gz(); // Giroscopio eje z
 
 
     }

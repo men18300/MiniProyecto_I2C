@@ -1,8 +1,8 @@
 
 #ifndef USART_H
 #define	USART_H
-#define _XTAL_FREQ 8000000
-#define Baud_rate 115200
+#define _XTAL_FREQ 4000000
+#define Baud_rate 9600
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdio.h>
